@@ -1,44 +1,54 @@
 # Convolution Filtering and Edge Detection
 
-## 1. Motivation
+## Motivation
 
-This computer vision lab implements convolution and Sobel edge detection from scratch with NumPy. OpenCV is named in the project idea, but the local environment has no cv2 package, so the implementation is transparent and dependency-light.
+Convolution is one of the core operations in computer vision. Before using large vision models, it is important to understand how simple filters detect structure in an image.
 
-## 2. Project Goal
+## Project Goal
 
-Build a small, reproducible AI research lab with clear outputs and honest limitations.
+We implemented convolution from scratch and used it for smoothing and edge detection.
 
-## 3. Dataset, Paper, Or Problem Description
+## Dataset / Problem
 
-Dataset/problem: a generated grayscale image with rectangle and circle shapes.
+The input is a controlled grayscale image containing simple shapes. This makes the effect of each filter easy to see.
 
-## 4. Tools
+## Tools
 
-Tools: Python, NumPy, pandas, matplotlib.
+Python, NumPy, pandas, and matplotlib.
 
-## 5. Models Or Methods
+## Method
 
-Method: 3x3 mean blur, Sobel X/Y filters, edge magnitude.
+We applied a 3x3 mean filter for smoothing. Then we applied Sobel X and Sobel Y filters and combined them into an edge-magnitude image.
 
-## 6. Hyperparameters When Relevant
+## Hyperparameters
 
-Hyperparameters: 96x96 image, 3x3 blur kernel, Sobel kernels.
+- Image size: 96x96
+- Blur kernel: 3x3 mean filter
+- Edge filters: Sobel X and Sobel Y
 
-## 7. Results
+## Results
 
-Results include original, smoothed, edge, pipeline figures, and summary CSV.
+The result summary reported:
 
-## 8. Interpretation Of Results
+| Metric | Value |
+|---|---:|
+| Mean image intensity | 0.2345 |
+| Mean edge magnitude | 0.1533 |
+| Maximum edge magnitude | 2.3594 |
 
-Interpretation: large edge magnitude appears where intensity changes sharply.
+The result folder contains the original image, smoothed image, edge image, combined pipeline figure, and a CSV summary.
 
-## 9. Conclusion
+## Interpretation
 
-Conclusion: convolution is the core operation behind many classical and deep CV systems.
+The edge magnitude is highest where the image intensity changes sharply, especially around the rectangle and circle boundaries. Smoothing reduces small local changes before edge detection.
 
-## 10. How To Run
+## Conclusion
+
+This project shows the basic idea behind many computer vision pipelines: filters transform raw pixels into more useful visual signals.
+
+## How To Run
 
 ```bash
 pip install -r requirements.txt
-python 1_*.py
+python 1_convolution_edge_detection.py
 ```

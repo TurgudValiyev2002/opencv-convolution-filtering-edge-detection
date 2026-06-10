@@ -1,33 +1,29 @@
-# One-Page Report: Convolution Filtering and Edge Detection
+# Report: Convolution Filtering and Edge Detection
 
 ## Motivation
 
-This lab is part of Dear Turgud's June 2026 AI Research Lab. It focuses on a small but meaningful research workflow.
+We implemented convolution to understand how classical computer vision filters process images.
 
-## Tools
+## Dataset / Problem
 
-Tools: Python, NumPy, pandas, matplotlib.
+The experiment used a controlled grayscale image with simple geometric shapes.
 
-## Dataset, Paper, Or Problem
+## Method
 
-Dataset/problem: a generated grayscale image with rectangle and circle shapes.
-
-## Model(s) Or Method(s)
-
-Method: 3x3 mean blur, Sobel X/Y filters, edge magnitude.
+We applied mean filtering for smoothing and Sobel filters for edge detection.
 
 ## Hyperparameters
 
-Hyperparameters: 96x96 image, 3x3 blur kernel, Sobel kernels.
+The image size was 96x96. The blur kernel was 3x3, and the edge filters were Sobel X and Sobel Y.
 
 ## Results
 
-Results include original, smoothed, edge, pipeline figures, and summary CSV.
+The mean edge magnitude was 0.1533, and the maximum edge magnitude was 2.3594. Figures show the original image, smoothed image, and detected edges.
 
 ## Interpretation
 
-Interpretation: large edge magnitude appears where intensity changes sharply.
+Edges appear where pixel intensity changes sharply. This confirms that Sobel filters capture object boundaries.
 
 ## Conclusion
 
-Conclusion: convolution is the core operation behind many classical and deep CV systems.
+Convolution is a simple but powerful operation. Understanding it makes modern CNNs easier to understand.
