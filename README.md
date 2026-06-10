@@ -1,5 +1,10 @@
 # Convolution Filtering and Edge Detection
 
+![Project overview](assets/readme_project_overview.png)
+
+Figure: image-processing pipeline from raw pixels to detected edges.
+
+
 ## Motivation
 
 Convolution is one of the core operations in computer vision. Before using large vision models, it is important to understand how simple filters detect structure in an image.
