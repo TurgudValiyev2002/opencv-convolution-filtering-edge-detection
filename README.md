@@ -1,59 +1,60 @@
-# Convolution Filtering and Edge Detection
+# Real-Image Edge Detection with Classical Filters
 
 ![Project overview](assets/readme_project_overview.png)
 
-Figure: image-processing pipeline from raw pixels to detected edges.
-
+Figure: real photos are converted to grayscale, filtered with classical edge operators, and compared with edge-density metrics.
 
 ## Motivation
 
-Convolution is one of the core operations in computer vision. Before using large vision models, it is important to understand how simple filters detect structure in an image.
+Classical edge detection is still important because it explains the basic visual idea behind many computer vision systems: boundaries often appear where pixel intensity changes sharply.
 
 ## Project Goal
 
-We implemented convolution from scratch and used it for smoothing and edge detection.
+We applied convolution-based edge detection to real images and compared Sobel, Laplacian, and Canny-like edge maps.
 
-## Dataset / Problem
+## Dataset
 
-The input is a controlled grayscale image containing simple shapes. This makes the effect of each filter easy to see.
+We used the real sample photos included with scikit-learn:
+
+- `china`: outdoor scene with buildings, sky, and objects
+- `flower`: close-up flower image with smoother background
+
+Both images are RGB photos with size 427x640.
 
 ## Tools
 
-Python, NumPy, pandas, and matplotlib.
+Python, NumPy, pandas, matplotlib, and scikit-learn.
 
 ## Method
 
-We applied a 3x3 mean filter for smoothing. Then we applied Sobel X and Sobel Y filters and combined them into an edge-magnitude image.
-
-## Hyperparameters
-
-- Image size: 96x96
-- Blur kernel: 3x3 mean filter
-- Edge filters: Sobel X and Sobel Y
+We implemented convolution from scratch. The pipeline converts RGB images to grayscale, smooths the image, applies Sobel and Laplacian filters, and builds a Canny-like edge map using non-maximum suppression and hysteresis.
 
 ## Results
 
-The result summary reported:
+| Image | Sobel Edge Density | Laplacian Edge Density | Canny-like Edge Density |
+|---|---:|---:|---:|
+| China | 0.1004 | 0.0318 | 0.0871 |
+| Flower | 0.0403 | 0.0235 | 0.0688 |
 
-| Metric | Value |
-|---|---:|
-| Mean image intensity | 0.2345 |
-| Mean edge magnitude | 0.1533 |
-| Maximum edge magnitude | 2.3594 |
+![Edge density comparison](results/edge_density_comparison.png)
 
-The result folder contains the original image, smoothed image, edge image, combined pipeline figure, and a CSV summary.
+![China edge pipeline](results/china_edge_pipeline.png)
+
+![Flower edge pipeline](results/flower_edge_pipeline.png)
 
 ## Interpretation
 
-The edge magnitude is highest where the image intensity changes sharply, especially around the rectangle and circle boundaries. Smoothing reduces small local changes before edge detection.
+The China image has higher Sobel edge density because it contains more scene boundaries, object outlines, and texture changes. The flower image is smoother, so fewer pixels become strong Sobel edges.
+
+The Canny-like method keeps thinner connected edges after suppression and hysteresis. This makes it more selective than raw Sobel magnitude.
 
 ## Conclusion
 
-This project shows the basic idea behind many computer vision pipelines: filters transform raw pixels into more useful visual signals.
+This project now demonstrates classical filtering on real images. The main lesson is that edge detectors are simple, interpretable tools for measuring local image structure, but their output depends strongly on image texture, threshold choice, and smoothing.
 
 ## How To Run
 
 ```bash
 pip install -r requirements.txt
-python 1_convolution_edge_detection.py
+python 1_real_image_edge_detection.py
 ```

@@ -1,0 +1,3 @@
+image,height,width,mean_gray_intensity,sobel_edge_density,laplacian_edge_density,canny_like_edge_density,sobel_mean_strength,laplacian_mean_strength
+china,427,640,0.5676,0.1004,0.0318,0.0871,0.0895,0.0513
+flower,427,640,0.2595,0.0403,0.0235,0.0688,0.0423,0.0257

@@ -1,29 +1,25 @@
-# Report: Convolution Filtering and Edge Detection
+# One-Page Report: Real-Image Edge Detection
 
 ## Motivation
 
-We implemented convolution to understand how classical computer vision filters process images.
+We wanted to study edge detection on real images instead of simple artificial shapes. This makes the filtering behavior more realistic because real photos contain texture, lighting variation, and clutter.
 
-## Dataset / Problem
+## Dataset
 
-The experiment used a controlled grayscale image with simple geometric shapes.
+The experiment uses two real scikit-learn sample photos: `china` and `flower`. Each image is an RGB photo with size 427x640.
 
 ## Method
 
-We applied mean filtering for smoothing and Sobel filters for edge detection.
-
-## Hyperparameters
-
-The image size was 96x96. The blur kernel was 3x3, and the edge filters were Sobel X and Sobel Y.
+We implemented 2D convolution from scratch. Each image was converted to grayscale, smoothed, and processed with Sobel, Laplacian, and Canny-like edge detection.
 
 ## Results
 
-The mean edge magnitude was 0.1533, and the maximum edge magnitude was 2.3594. Figures show the original image, smoothed image, and detected edges.
+The China image had Sobel edge density 0.1004 and Canny-like edge density 0.0871. The flower image had Sobel edge density 0.0403 and Canny-like edge density 0.0688.
 
 ## Interpretation
 
-Edges appear where pixel intensity changes sharply. This confirms that Sobel filters capture object boundaries.
+The China image contains more strong boundaries and scene structure, so Sobel detects more edge pixels. The Canny-like method is more selective because it suppresses weak non-maximum responses and keeps connected edge chains.
 
 ## Conclusion
 
-Convolution is a simple but powerful operation. Understanding it makes modern CNNs easier to understand.
+Classical filters remain useful for understanding visual structure. Real images show why thresholding, smoothing, and edge connectivity matter.
