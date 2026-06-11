@@ -50,7 +50,7 @@ The Canny-like method keeps thinner connected edges after suppression and hyster
 
 ## Conclusion
 
-This project now demonstrates classical filtering on real images. The main lesson is that edge detectors are simple, interpretable tools for measuring local image structure, but their output depends strongly on image texture, threshold choice, and smoothing.
+This project demonstrates classical filtering on real images. The main lesson is that edge detectors are simple, interpretable tools for measuring local image structure, but their output depends strongly on image texture, threshold choice, and smoothing.
 
 ## How To Run
 
